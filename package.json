@@ -2,14 +2,22 @@
   "name": "hackernews-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "nodemon src/index.js"
+    "start": "nodemon --exec babel-node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "graphql-yoga": "^1.16.2"
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "graphql-yoga": "^1.16.2",
+    "mongoose": "^5.2.17"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "rimraf": "^2.6.2"
   }
 }
