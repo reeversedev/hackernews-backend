@@ -10,5 +10,5 @@ type Link {
 }
 
 type Mutation {
-  post(url: String!, description: String!): Link!
+  createPost(url: String!, description: String!): Link!
 }

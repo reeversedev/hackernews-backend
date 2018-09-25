@@ -1,4 +1,5 @@
 import express from "express";
+import graphql from "./src/index";
 
 const app = express();
 
