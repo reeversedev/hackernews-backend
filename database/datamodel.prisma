@@ -1,4 +1,60 @@
 type User {
   id: ID! @unique
   name: String!
+  bio: String
+  email: String! @unique
+  password: String!
+  hacked: [Post!]! @relation(name: "UserHacked")
+  made: [Post!]! @relation(name: "UserMade")
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Post {
+  id: ID! @unique
+  url: String! @unique
+  name: String!
+  slug: String! @unique
+  tagline: String!
+  status: PostStatus!
+  shortUrl: String! @unique
+  hacker: User! @relation(name: "UserHacked")
+  makers: [User!]! @relation(name: "UserMade")
+  topics: [Topic!]!
+  comments: [Comment!]!
+  votes: [Vote!]!
+  visits: [Visit!]!
+  createdAt: DateTime!
+}
+type Topic {
+  id: ID! @unique
+  name: String
+  slug: String
+  posts: [Post!]!
+}
+
+type Comment {
+  id: String! @unique
+  user: User!
+  post: Post!
+  message: String!
+  createdAt: DateTime!
+}
+
+type Vote {
+  id: ID! @unique
+  user: User!
+  post: Post!
+  createdAt: DateTime!
+}
+
+type Visit {
+  id: ID! @unique
+  post: Post!
+  createdAt: DateTime!
+}
+
+enum PostStatus {
+  AVAILABLE
+  COMING
 }
