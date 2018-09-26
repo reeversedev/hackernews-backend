@@ -34,7 +34,7 @@ type Topic {
 }
 
 type Comment {
-  id: String! @unique
+  id: ID! @unique
   user: User!
   post: Post!
   message: String!
